@@ -11,6 +11,7 @@ class Followers extends React.Component {
     componentDidMount(){
         axios.get("https://api.github.com/users/toneiojimz/followers")
             .then(response => {
+                console.log(response);
                 this.setState({ followers: response.data });
             })
             .catch (error => {

@@ -1,27 +1,33 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const Pic = styled.img`
+    width: 220px;
+    heigth: 220px;
+`;
+
+const User = styled.div`
+    border:3px solid orange;
+    margin: 5px;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+`;
 
 const UserCard = (props) => {
     const {
         avatar_url,
-        id, 
-        name,
-        login,
-        location, 
         url,
-        followers,
         bio } = props.user;
 
         return (
-            <div>
-                <img src={avatar_url} alt='profile picture'/>
-                <p>Id: {id}</p>
-                <p>Name: {name}</p>
-                <p>Username: {login}</p>
-                <p>Location: {location}</p>
+            <User>
+                <Pic src={avatar_url} alt='profile picture'/>
                 <p>Github: {url}</p>
-                <p>Followers: {followers}</p>
                 <p>Bio: {bio}</p>
-            </div>
+            </User>
         )
 }
 
