@@ -1,34 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
-import axios from 'axios';
 
- class App extends React.Component{
+import Profile from './Components/Profile';
+import Followers from './Components/Followers';
 
-    state ={
-      followers: [],
-      followerText:''
-    };
-    
-    componentDidMount(){
-      
-      axios.get(`https://github.com/toneiojimz`)
-        .then(response =>{
-          console.log(response);
-          this.setState({followers: response.data.message});
-        });
-    }
+function App (){
+  return (
+    <div className="App">
+      <h1>Github Users</h1>
+      <Profile/>
+      <Followers/>
+    </div>
+  )
+}
 
-    render(){
-      return (
-      <div className='App'>
-        <h1>The Followers</h1>
-        <div className='followers'>
-          {this.state.followers.map( follower => (
-            <img width='150' src={follower} key={follower} alt={follower} />
-          ))}
-        </div>
-      </div>
-      );
-    }
- }
 export default App;

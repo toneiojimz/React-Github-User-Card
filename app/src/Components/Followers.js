@@ -13,7 +13,7 @@ class Followers extends React.Component {
             .then(response => {
                 this.setState({ followers: response.data });
             })
-            .catch (err => {
+            .catch (error => {
                 console.log('something went wrong', error)
             })
     }
